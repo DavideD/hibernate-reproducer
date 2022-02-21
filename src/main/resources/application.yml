@@ -2,10 +2,10 @@ quarkus:
   datasource:
     jdbc: false
     db-kind: oracle
-    username: quarkus_test
-    password: quarkus_test
+    username:
+    password:
     reactive:
-      url: oracle:thin:@localhost:1521:quarkus_test
+      url:
 
   hibernate-orm:
     database:
