@@ -23,7 +23,10 @@ class InsertTest {
             .then()
             .contentType("application/json")
             .statusCode(HttpStatus.SC_OK)
-            .body(containsString("\"transactionDetail\":\"LOB Field\""));
+            .body(
+                containsString("\"transactionDetail\":\"LOB Field\""),
+                containsString("\"uniqueTransactionIdentifier\":\"9fc61a3f-ae8b-426f-8f63-fc3fec70d94c\"")
+            );
     }
 
 }
