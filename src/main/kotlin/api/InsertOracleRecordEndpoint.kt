@@ -15,8 +15,7 @@ class InsertOracleRecordEndpoint @Inject constructor(private val processOracleRe
     @GET
     @Path("insert")
     fun testOracleInsert() : Uni<Response> {
-        return Uni.createFrom().voidItem()
-            .call { -> processOracleRecord.processRecord() }
+        return processOracleRecord.processRecord()
             .map { Response.accepted().build() }
     }
 }

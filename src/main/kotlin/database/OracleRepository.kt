@@ -8,8 +8,6 @@ import javax.enterprise.context.ApplicationScoped
 @ApplicationScoped
 class OracleRepository: PanacheRepository<OracleEntity> {
     fun save(entity: OracleEntity) : Uni<Void> {
-        return Panache.withTransaction {
-            persist(entity)
-        }.chain { -> flush() }
+        return Panache.withTransaction { persist(entity).replaceWithVoid() }
     }
 }
