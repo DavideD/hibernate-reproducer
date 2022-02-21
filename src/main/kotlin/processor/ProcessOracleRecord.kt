@@ -11,12 +11,12 @@ import javax.enterprise.context.ApplicationScoped
 class ProcessOracleRecord(private val oracleRepository: OracleRepository) {
     private val oracleEntity = OracleEntity()
 
-    fun processRecord(): Uni<Void> {
+    fun processRecord(): Uni<OracleEntity> {
         oracleEntity.uniqueTransactionIdentifier = UUID.randomUUID().toString()
         oracleEntity.createTimestamp = LocalDateTime.now()
         oracleEntity.transactionDetail = "N/A"
         oracleEntity.internalPaymentIdentifier = "N/A"
         oracleEntity.transactionFailureReason = "N/A"
-        return oracleRepository.save(oracleEntity).replaceWithVoid()
+        return oracleRepository.save(oracleEntity)
     }
 }
