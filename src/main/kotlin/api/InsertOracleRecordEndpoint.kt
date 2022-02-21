@@ -1,5 +1,6 @@
 package api
 
+import database.OracleEntity
 import io.smallrye.mutiny.Uni
 import processor.ProcessOracleRecord
 import javax.inject.Inject
@@ -22,5 +23,11 @@ class InsertOracleRecordEndpoint @Inject constructor(private val processOracleRe
         return processOracleRecord.processRecord()
             .map(Response::accepted)
             .map { it.build() }
+    }
+
+    @GET
+    @Path("listAll")
+    fun listAll(): Uni<List<OracleEntity>> {
+        return processOracleRecord.readRecords()
     }
 }
