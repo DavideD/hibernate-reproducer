@@ -20,9 +20,11 @@ dependencies {
     implementation("io.quarkus:quarkus-hibernate-validator")
     implementation("io.quarkus:quarkus-reactive-oracle-client")
     implementation("io.quarkus:quarkus-kotlin")
+    implementation("io.quarkus:quarkus-config-yaml")
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
     implementation("io.quarkus:quarkus-arc")
     implementation("io.quarkus:quarkus-resteasy-reactive")
+    testImplementation("io.rest-assured:rest-assured")
     testImplementation("io.quarkus:quarkus-junit5")
 }
 
