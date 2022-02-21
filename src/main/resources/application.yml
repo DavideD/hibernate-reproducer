@@ -1,7 +1,14 @@
 quarkus:
   datasource:
+    jdbc: false
     db-kind: oracle
-    username:
-    password:
+    username: quarkus_test
+    password: quarkus_test
     reactive:
-      url:
+      url: oracle:thin:@localhost:1521:quarkus_test
+
+  hibernate-orm:
+    database:
+      generation: drop-and-create
+    log:
+      sql: true
